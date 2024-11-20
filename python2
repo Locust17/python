@@ -1,0 +1,294 @@
+# def get_sum(sum1,sum2):
+#     result = sum1 + sum2
+#     return result
+#
+# #print(get_sum(1,2))
+# num = get_sum(1,2)
+# print(num)
+#
+# a = 1
+# b = 2
+# c = a + b
+# #print(c)
+# print("c的值是：" + str(c))
+
+#-----------------------------------------------
+# string1 = "hello world"
+#
+# #len length
+# print(len(string1))
+#
+# #capitalize   把首字母大写
+# print(string1.capitalize())
+#
+# #upper     全部大写
+# print(string1.upper())
+
+
+#--------------------------------------------
+
+# #列表
+# list1 = [1,3,2,4,5]
+# list1[1] = 9  #更改
+#
+# list1.append(6)  #增加6
+#
+# list1.pop(0)    #删除
+#
+# list1.insert(0,0)  #增加位置及其数字
+#
+# list1.sort()   #排序
+#
+# list1.reverse()  #逆序
+#
+# list1.remove(2)   #移除所选数字
+#
+# print(list1)
+
+#-------------------------------------------------------
+
+# #元组
+# tuple1 = (1,2,3)  #元组不能修改
+#
+# list1 = list(tuple1)  #可以强制转换成数组
+#
+# list1.pop(0)  #删除0位置 ！！！删除不了
+#
+# print(list(tuple1))
+
+#-----------------------------------------------------
+
+# #dictionary 字典
+#
+# dict1 = {"name":"老张","height":170,"weight":100}
+#
+# dict1["gender"] = "男"
+#
+# dict1.pop("name")
+#
+# print(dict1["weight"])   #使用数组中括号进行查找
+
+#------------------------------------------------------
+
+# #set 集
+# set1 = {1,2,3,4,5,6}
+#
+# set1 = set((2,3,1,5,7))  #重新赋值,需要两个括号
+# set1.add(5)  #增加一个5
+#
+# set1.discard(3)  #删减一个3
+#
+# set2 = {3,4,5,7}
+#
+# print(set2.difference(set1))  #求差，并且在set2有，set1没有d
+
+#-----------------------------------------------------
+
+# # Number 值类型变量
+#
+# a = 1
+#
+# b = a
+#
+# b = 3
+#
+# print("a:" + str(a))  #str()可以拼接纯数字
+# print("b:" + str(b))  #一对一的储存位置，修改一个只会修改他所对应的值
+#
+# # list  引用类型变量
+# list1 = [1,2,3]
+#
+# list2 = list1
+#
+# list2[2] = 4
+#
+# print("list1" + str(list1)) #1，2，4
+#
+# print("list2" + str(list2)) #1，2，4  #修改一个多对一，list1，list2指向相同的空间，修改一个其他都被修改，如果全部更换，那么各指向各自的
+#
+# #值类型：数字 布尔
+#
+# #引用类型： 列表 元组 字典 集合 字符串
+
+# #----------------------------------------------
+#
+# homeword_finished = False #True
+#
+# if(homeword_finished):
+#     print("你可以去看会电视")
+# else:
+#     print("滚去写作业")
+#
+# print("另外的内容")
+#
+# # > < >= <= == !=
+# prize  =  1
+#
+# if(prize > 800):
+#     print("你这也太贵了")
+# elif(prize > 600):
+#     print("还是有点贵")
+# elif(prize > 400):
+#     print("能不能再少点")
+# elif(prize > 200):
+#     print("可以接受")
+# else:
+#     print("买了")
+#
+# a = 10
+#
+# while(a>5):
+#     print(a)
+#     a =  a - 1 # a -= 1
+#
+# print("循环结束")
+#
+# #序列： 字符串 列表 元组
+#
+# string1 = "sdjfjldsdjlfas;dfjs"
+#
+# for char in string1:
+#     print(char)
+#
+# list1 = ["老邓","老张","老王"]
+#
+# for person in list1:
+#     print(person)
+#
+# print(range(10)) #生成一个整数序列
+#
+# for i in range(0,len(list1),1): #起始值，结束值，步长
+#     print(list1[i])
+#
+# print(list(range(0,10,2)))
+#
+# #--------------------------------------------------
+# #break
+#
+# for i in range(10):
+#     print(i)
+#     if(i == 5):
+#         break
+#
+# a = 10
+# while(a>5):
+#     print(a)
+#     a = a-1
+#
+#     if(a == 8):
+#         break
+#
+# print("循环结束")
+#
+# #-----------------------------------------
+
+# patients = [False,True,False,True]
+#
+# for patient in patients:  #患人，患者
+#
+#     if(patient):
+#         continue
+#     print("治疗这个病人") #两次治疗
+
+#------------------------------------------------
+# import sys
+#
+# print(sys.path)      #查找路径
+
+#---------------------------------------------------------------------------------------------
+# import side_code
+
+#print(side_code.get_sub(2,2))  #调用其他py文件中的函数
+
+#----------
+# from side_code import get_sum #直接使用from声明使用的是那个文件的函数
+#
+# print(get_sum(2,2))
+
+#-----------
+
+# import side_code as ccco #使用as将py文件重命名使用
+#
+# print(ccco.get_sum(2,2))
+
+#-----------
+# from side_code import *  #使用from加*代表使用side_code的所有函数
+#
+# print(get_sub(2,2))
+
+#-------------------------------------------------------------------------------------------
+
+# #shell中敲   pip install pygame
+#
+# import pygame
+#
+# pygame.
+#
+# import numpy
+
+# #-------------------------------------------------------------------------------------------
+#
+# # 创建数据
+#
+# #数据类型1 整数 浮点数
+# x = 1
+# y = 1.0
+#
+# #整数类型2 字符串
+# word = "say something : 007"
+# w_2 = "good"
+# w_3 = '''
+# a very long string here
+# this is extra line
+# '''
+#
+# #整数类型3 布尔值
+# test = True
+# truth = False
+#
+# a_very_long_name = "wow"
+# mingzi = 'zhangsan'
+#
+# THIS = "password"
+# THAT = 42
+#
+#
+# #使用数据
+# print(42)
+#
+# reult = len("hello")
+# r2 = len(word)
+# print(reult)
+# print(r2)
+#
+# print(x + 1)
+# x = x + 1
+# x += 1
+# x -= 1
+#
+# #删除数据
+#
+# del x
+# print(x) #已删除
+#
+# #-------------------------------------------------------------------------------
+from django_micro import configure, route, run
+from django.http import HttpResponse
+
+DEBUG = True
+limit = 10
+html = f'''
+<div style="background-color:#77DFF5;height:100%">
+    <h1 style="color:white:text-align:center">You have{ limit } times left~</h1>
+    <image src="https://file-geieweyp.now.sh" style="margin:auto;dispaly:block">
+</div>
+'''
+
+configure(locals())
+
+@route('',name='home')
+def homepage(reouest):
+    name = request.GET.get('name', 'world')
+    return HttpResponse(html)
+
+application = run()
