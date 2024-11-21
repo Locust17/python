@@ -1,0 +1,174 @@
+# a = 1
+# print(a)
+# print("a的值目前是" + str(a))
+
+# type('this')  #返回一个对象的类型
+
+# type(b'this')  #返回一个字节串
+
+# #b'this' + 'that' #不能将字符串和字节串拼接
+
+# z = "中文"
+# print(z)
+
+# m = z.encode("utf-8")  #将z编码成utf-8的编码格式
+# print(m)
+
+# f = b'\xe4\xb8\xad\xe6\x96\x87'
+# f1 = f.decode("utf-8")  #解码
+# print(f1)
+
+# a = 'hello'
+
+# a1 = a.capitalize()   #首字母转大写
+# print(a1)
+
+# print(a)
+
+# b = a.capitalize()  #首字母转大写
+# print(b)
+
+# print('that'.count("t"))  #统计count后面的字符，出现几次
+
+# g = 'that is dope'.split()  #字符串分割，形成数组
+
+# print(g)
+
+# g = 'that is dope'.partition(" ")  #从前往后，分割第一个空格
+
+# print(g)
+
+# g = 'that is dope'.rpartition(" ")  #从后往前，分割第一个空格
+
+# print(g)
+
+# g = 'www.this.com.cn'.rpartition(".")  #从后往前分割第一个.
+
+# print(g)
+
+# g = 'this'.replace("i","I")  #将字符串中的i变成大写I
+
+# print(g)
+
+# g = "this".replace("i","I").replace("t","T")  #串联修改
+
+# print(g)
+
+# g = {"i":"T","t":"T"}
+# print(g)
+
+# g = 'hello'.strip(':')  #去除字符串两端的冒号
+# print(g)
+#
+# print(".".join(["s","e","g"]))   #加入，将数组内的元素使用.连接
+#
+# print(" ".join(["this","is","great"]))
+#
+# print('helo'.find("e"))  #寻找
+#
+# print('hello'.find("l"))  #第一个出现的位置
+#
+# g = 'yk-1001'.startswith("yk")  #判断类型，是否为yk开头
+#
+# print(g)
+#
+# print('@163.com'.endswith("@163.com")) #判断类型，是否以括号结尾
+#
+# Z = "qweqwe"
+
+#z.startswith()   #检查字符串是否为指定数字开头，是返回True 不是返回False
+
+#
+# print(1 + 4.0)
+#
+# a = 1
+#
+# b = 2
+#
+# b = 1
+#
+# print(a == b)
+#
+# print(a is b)
+#
+# x = [1,2]
+#
+# y = [1,2]
+#
+# print(x == y)
+#
+# print(x is y)    #列表不为同一事物，单独开发一个空间，与更改列表是一个道理
+
+#创建
+a = []
+b = {}
+c = [12,"room-221",3] #列表为同一元素，不然没有意义
+d = {"John Doe": 1}
+e = list()  #列表
+f = dict()  #字典  <-json
+
+
+#使用
+print(a)
+# 0,1,2
+total = 2 + c[2]
+print(total)
+
+print(d["John Doe"])
+d.get("John Doe")
+
+g = c +[7,8,9]
+print(g)
+
+d.update({"James Five": 2})
+print(d)
+
+
+#修改
+
+
+c = [1,2,3]
+print(c)
+c.append(4)
+print(c)
+c.remove(2)
+print(c)
+c.append(1)
+print(c)
+
+
+print({"John Doe": 1})
+z = {"John Doe": 1}
+z.update({"James Bond": "007"})  #添加update
+print(z)
+z.update({"James Fond": "007"})
+print(z)
+z['???'] = "pikachu"  #另一种添加
+print(z)
+
+
+
+#删除
+
+# c.remove()
+# d.php("")
+#del d["name"]   三种删除方法
+
+z.pop("John Doe")
+print(z)
+
+del z["James Bond"]
+print(z)
+
+
+#循环
+
+for i in c:
+    if i == 1:
+        pass         #如果循环不带条件，那么就没有多大的意义
+    print(i)
+
+
+for i in d.keys():
+    print(i)
+    #print(a[i])
