@@ -1,0 +1,182 @@
+#-----------------------------------------------
+
+# #d['aaaa']
+# #d.get['aaaa']   #收到，不存在就会报错
+#
+# result = d.get('aaaa')
+# print(result)  # None
+#
+# d.values()  #价值观，d = {'a': 1, 'b': 2}，d.values()将返回一个包含值 1 和 2 的可迭代对象。
+#
+# print(d.values())  #价值观，输出全部value
+#
+# print(list(d.values()))  #强制转换
+#
+# z = {k:d[k] for k in d.keys() if k.isupper()}
+# print(z)
+
+#-------------------------------------------------------
+
+#条件判断：分流数据
+
+#循环：批量处理数据
+
+#流控制：当什么时，发生什么事
+# limit = 1
+# if limit > 0:
+#     return HttpResponse(html)
+# else:
+#     return HttpResponse("haha")
+#
+# user_input = "12"
+# another_thing = False
+# #conditon chaia
+# if user_input:
+#     print("Hello")
+# elif user_input.startswith("1"):
+#     print("we got 1")
+# elif user_input.endswitch("2"):
+#     print("we got 2")
+#
+#
+# if another_thing:
+#     print("haha ther we go")
+# else:
+#     print("nothing")
+#
+# print("world")
+#
+# # #----------------------------------------------
+# from django_micro import configure, route, run
+# from django.http import HttpResponse
+# import csv
+#
+# setting = {
+#     'DEBUG': True,
+#     'ALLOWED_HOSTS': ["127.0.0.1"],
+#     'LANGUAGE_COOE': 'en-us'
+#
+# }
+#
+# configure(setting)
+#
+# buffer = open("./source.csv", "r")
+# r = list(csv.reader(buffer))
+# data = ''
+#
+# for row in r:
+#     data += f'''
+#     <tr style="border-top:1pt solid #555555">
+#         <td><h3>{row[0]}</h3></td>
+#         <td><h3>{row[1]}</h3></td>
+#         <td><h3>{row[2]}</h3></td>
+#     </tr>'''
+#
+# male_ad = '<image src="https://file-fsouxucwbs.now.sh"height:10%;margin:auto;display:block>'
+# female_ad = '<image src="https://file-crccldcpvg.now.sh" style="height:10%;margin:auto;display:block">'
+#
+# @route('', name='home')
+# def homepage(request):
+#     html = f'''
+#     <div style="background-color:#0A0A0E;height:150%">
+#         <image src="https://file-rctyigetlr.now.sh" style="height:70%;margin:auto;display:block">
+#         <toble style="width:70%;color:white;border-collapse:collapse" align="center">
+#             {data}
+#         </table>
+#     </div>
+# '''
+#     return HttpResponse(html)
+#
+# applicatiion = run()
+#
+# #----------------------------------------------------------------------------------------
+#
+# from django_micro import configure, route, run
+# from django.http import HttpResponse
+# import csv
+#
+# setting = {
+#     'DEBUG': True,
+#     'ALLOWED_HOSTS': ["127.0.0.1"],
+#     'LANGUAGE_COOE': 'en-us'
+# }
+#
+# configure(setting)
+#
+# buffer = open("./source.csv", "r")
+# r = list(csv.reader(buffer))
+# data = ''
+#
+# for row in r:
+#     data += f'''
+#     <tr style="border-top:1pt solid #555555">
+#         <td><h3>{row[0]}</h3></td>
+#         <td><h3>{row[1]}</h3></td>
+#         <td><h3>{row[2]}</h3></td>
+#     </tr>'''
+#
+# male_ad = '<image src="https://file-fsouxucwbs.now.sh"height:10%;margin:auto;display:block>'
+# female_ad = '<image src="https://file-crccldcpvg.now.sh" style="height:10%;margin:auto;display:block">'
+#
+# @route('', name='home')
+# def homepage(request:HttpResponse):
+#     # print(request.COOKIES)
+#     # gender = request.COOKIES.get("gender")
+#     # print(gender)
+#     # if gender == "female":
+#     #     ad = female_ad
+#     # elif gender == "male":
+#     #     ad = male_ad
+#     # else:
+#     #     pass
+#     gender = request.COOKIES.get("gender")
+#
+#     html = f'''
+#     <div style="background-color:#0A0A0E;height:150%">
+#         <image src="https://file-rctyigetlr.now.sh" style="height:70%;margin:auto;display:block">
+#         <toble style="width:70%;color:white;border-collapse:collapse" align="center">
+#             {data}
+#         </table>
+#     </div>
+# '''
+#     return HttpResponse(html)
+#
+# applicatiion = run()
+
+
+#输入判断
+
+# print("write your comment.")
+# post = input()   #输入这个函数
+#
+# if 1 < len(post) < 10:
+#     print(f'you said: { post }')
+# elif "@" in post:
+#     print("Invalid input")
+# else:
+#     print('comment cant be less than 1 more than 10')
+
+#-------------------------------------------------------------
+#1
+user = input()
+password = input()
+user_db = {
+    "admin": 123456,
+    "zhangsan": 111111,
+    "lisi": 111111
+
+}
+
+
+if not user in user_db:
+    print("user not exist")
+if password != user_db.get(user):
+    print("wrong password")
+
+#2
+if not user in user_db or password != user_db.get(user):
+    print(f'Welcome back { user }')
+else:
+    print("user not exist or worng password")
+
+#print(f'Welcome back { user }')
