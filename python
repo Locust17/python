@@ -1,0 +1,414 @@
+#简单的if语句判断，input()输入的的正确性
+
+# print("Your name below")
+# user = input()
+#
+# user_db = {
+#     "Fin": "human"
+# }
+#
+# if user in user_db:
+#     print("your password below:")
+#     password = input()
+#     if password == user_db.get(user):
+#         print(f"welcome back { user }")
+#     else:
+#         print("wrong password")
+# else:
+#     print("This account is not exist")
+#
+
+#-------------------------------------------------
+
+# import string
+# print(string.punctuation)  #表示所有标点符号的字符串常量。它包含了各种标点符号
+# l = [p in "@iceking" for p in string.punctuation]
+# print(1)
+#
+# print("write your comment.")
+# post =  input()
+#
+# if any(p in post for p in string.punctuation):
+#     print("Invalid word")
+# elif len(post) > 10:
+#     print("comment cant more then 1 word more than 10 words")
+# elif not post:
+#     print("comment cant less than 1 word more than 10 words")
+# else:
+#     print(f"You said { post }")
+
+#--------------------------------------------------
+
+# import random
+#
+# a = "first" if random.choice([True,False]) else "last"    #利用random.choice函数随机生成一个True或者False,并正确赋值前面，错误赋值后面
+# print(a)
+
+#-------------------------------------------------
+
+# #两种循环
+#
+# #for loop for循环
+#
+# #while loop while循环
+#
+# for i in [1,2,3]:
+#     print(i)
+#
+# for do in [1,2,3]:
+#     print(i)   #do没有初始化
+#
+# # while True:
+# #     print("hello world")  #没有条件停止
+
+
+#-----------------------------------------------
+
+#循环是可被控制的
+
+#条件判断
+#break
+#continue
+
+# #--------------------------------------------
+#
+# for i in [1,2,3]:
+#     print("i的值是:"+str(i))
+#
+# #--------------------------------------------
+#
+# #TODO 把式
+#
+# #for loop and while loop
+# z = [1,2,3,4,5]
+# for i in z:
+#     print(i)
+# for i in range(20):  #遍历
+#     print(i)
+#
+# while True:
+#     print("hello")
+#     break
+#
+# count = 3
+# while count:
+#     count -= 1
+#     print("hi")
+#
+#
+#
+# #TODO 细则
+#
+# s = [(1,2),(2,3),(4,5)]
+# for i in s:
+#     print(i) #遍历s
+#
+# n = [1,2,3,4]
+# m = [6,7,8,9]
+# for i,j in zip(n,m):        #同时遍历多个可迭代对象时非常有用，可以方便地对它们的元素进行同步处理
+#     print(i,j)
+#
+# m = [1,2,3,4,5,6,7,8,9]
+# for i in m:
+#     print("遍历m中的值为："+str(i))
+#
+# p = [1,2,3,5,5]
+# for i in p:
+#     a = 1
+#     print(i)
+#
+#
+#
+# #TODO 控制
+#
+# #break continue ----------------------- pass
+#
+# for i in range(20):  #遍历0 - 19
+#     if i == 4:
+#         continue   #意思是只跳过4
+#     print(i)
+#
+# for i in range(20):
+#     if i == 4:
+#         break
+#     print(i)
+#
+#
+# for i in [1,2,3,4,5,6,7,8,9,0]:
+#     if i == 0:
+#         continue
+#     print(12 / i)
+
+#--------------------------------------------
+#
+# from django_micro import route,run,configure
+# from django.http import HttpRequest, HttpResponse
+# import web_page          #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+# DEBUG = True
+#
+# redeems = ['RRMNDiqKT',
+#            'ABUKKrEXE',
+#            'UeLRwjmBq',
+#            'FaZHYFFpr',
+#            'Ydjasdkjf',
+#            'dsdjfadlj',
+#            'dsajdflas']
+#
+# @route("home")    #修饰请求
+# def index(requests: HttpRequest):
+#     return HttpResponse(web_page.doc.rendr())
+#
+#
+# @route('result')
+# def get_code(requests: HttpRequest):
+#     code = requests.POST.get("code")
+#     if code in redeems:
+#         return HttpResponse("ok")
+#
+# #--------------------------------------------------------
+
+# from django_micro import route,run,configure
+# from django.http import HttpRequest, HttpResponse
+# import web_page          #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+# configure(locals())
+#
+# DEBUG = True
+#
+# redeems = ['RRMNDiqKT',
+#            'ABUKKrEXE',
+#            'UeLRwjmBq',
+#            'FaZHYFFpr',
+#            'Ydjasdkjf',
+#            'dsdjfadlj',
+#            'dsajdflas']
+#
+# #dump data
+# redeems = []
+# for i in range(9):
+#     code = ' '
+#     for i in range(8):
+#         code += random.choice(string.ascii_uppercase)
+#     redeems.append(code)
+#
+# ai_suggests = [
+#     "ww.a.com",
+#     "www.b.com",
+#     "www.c.com",
+# ]
+#
+#
+#
+# print(redeems)
+#
+# @route("home")    #修饰请求
+# def index(requests: HttpRequest):
+#     return HttpResponse(web_page.doc.rendr())
+#
+#
+# @route('result')
+# def get_code(requests: HttpRequest):
+#     code = requests.POST.get("code")
+#     if code in redeems:
+#         return HttpResponse("ok")
+#     else:
+#         #<li>ww.a.com</li>
+#         #join()
+#
+#
+#         data = ' '.join(ai_suggests)
+#         # for link in ai_suggests:
+#         #     li = "<li>"+ link +"</li>"
+#         #     data += li
+#         #
+#         data = '<!-- dump data -->'.join("<li>"+ i +"</li>"for i in ai_suggests)
+#         html = f'''
+#         <h1>Sorry but we bring you these</h1>
+#         <ul>{ data }</ul>
+#         '''
+#         # return HttpResponse("wrong")
+#         return HttpResponse(html)
+# app = run()
+#
+
+
+# <html>
+# <head></head>
+# <body>
+#     <h1>Sorry but we bring you these</h1>
+#     <ul>
+#         <li>ww.a.com</li>
+#         <!--- dump data -->
+#         <li>ww.b.com</li>
+#         <!--- dump data -->
+#         <li>ww.c.com</li>
+#     </ul>
+# </body>
+# <div style="display: block: opacity: 1;">...</div>
+# </html>
+
+
+# #------------------------------------
+
+# print("a"+"b")
+#
+# import string
+#
+# print(string.ascii_letters)
+#
+# import random
+#
+# for i in range(20):
+#     print(random.choice(string.ascii_letters))  #括号里面的是随机从中取一个数字
+#
+# #--------------------------------------------
+# code = "xumtgHNm"
+# result_list = []
+#
+# code += random.choice(string.ascii_letters)
+# print(code)
+#
+# for i in range(20):
+#     code = ' '
+#     for i in range(20):
+#         code += random.choice(string.ascii_letters)
+#     print(code)
+#     result_list.append(code)          #将for循环生成的字符串，放进列表中
+# print(result_list)
+#
+#
+
+#---------------------------------------------------
+
+#创建函数的原则
+
+#面向过程式
+
+#面向功能式
+
+#按数据分析
+
+
+#使用
+# z = print()
+# pt = print   #自定义命名函数
+#
+# pt('hello')
+#
+# #定义
+# def nameLongButVeryStrange():
+#     pass
+# '''
+# 小驼峰命名法   nameLongButVeryStrange
+# 小驼峰命名法   NameLongButVeryStrange
+# 下划线命名法   name_Long_Strange
+# '''
+#
+# def result(height, tb, ub):
+#     return (tb + ub) * height * 1/2
+
+#参数迷思
+
+a = 1
+b = 2
+
+def add(a,b):
+    return a+b
+def that(b,c):
+    return b*c+b**c
+def do(first_int,second_int):
+    return first_int * second_int
+print(do(a,b))
+
+#类型 trick
+def example(head:str, butt:str) -> str:   #它接受两个参数，参数 “head” 的类型被指定为字符串（str），参数 “butt” 的类型也被指定为字符串（str）。这个函数的返回值类型被指定为字符串（str）
+    if head.startswith('?'):
+        pass
+    return head + butt
+
+e = example("hello","there")
+print(e)
+
+
+#One more thing
+#rule
+#(func) -> func
+
+# def useless(func):
+#     return lambda :func() + 1  #useless” 的函数，它接受一个函数 “func” 作为参数，并返回一个新的匿名函数。这个匿名函数在被调用时会先调用传入的函数 “func”，然后将其结果加 1 并返回
+# #递归
+
+# 
+# @useless   #其中 “@useless” 可能是一个装饰器或者某种注解，
+# def one():
+#     return 1
+# 
+# print(one())
+
+#----------------------------------------------------------
+
+
+#递归-------------------------
+def useless(func):
+    def deco():
+        return func() +1
+    return deco
+@useless   #其中 “@useless” 可能是一个装饰器或者某种注解，
+def one():
+    return 1
+
+print(one())
+
+
+#运算符
+
+#数字
+
+#字符串
+
+#列表
+
+#元组
+
+#字典
+
+#集合
+
+#条件控制
+
+#循环语句
+
+#编程第一步
+
+#推导式
+
+#迭代器与生成器
+
+#函数
+
+#lambda
+
+#装饰器
+
+#数据结构
+
+#模板
+
+#输入和输出
+
+#File
+
+#OS
+
+#错误和异常
+
+#面向对象
+
+#命名空间/作用域
+
+#标准库概览
+
+#实例
+
+#测验
