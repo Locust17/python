@@ -1,0 +1,83 @@
+# def date_gen(m,d,y=2019):
+#     return f'{y}-{m}-{d}'
+#
+# print(date_gen(m=11,d=11,y=2018))
+
+
+def formatter(num):
+    if 1 <= num <= 9:
+        return f'0{num}'
+    return num
+
+def date_gen(m,d,y=2019,sep='-',with_prefix=None):
+    m = formatter(m)
+    d = formatter(d)
+    if with_prefix:
+        return f'{with_prefix}:{y}{sep}{m}{sep}{d}'
+    return f'{y}{sep}{m}{sep}{d}'
+def date_slash(m,d):
+    return date_gen(m,d,y=2019,sep='/',with_prefix="日期")
+
+#*args,**kwargs
+
+#1
+def show(*args,**kwargs):   #*是元组，**是字典
+    print(args)
+    print(kwargs)
+# def setup():
+#     #lots stuff here
+#     def install():
+#         pass
+#     return install
+# installer = setup()
+# installer()
+
+#2
+def date_with_sub(m,d,*args):
+
+    sub = f'''
+    |
+    +--> {''.join(args)}
+    '''
+    main_str = date_gen(m,d,y=2019,sep='/',with_prefix="日期")
+    return main_str + sub
+
+
+print(date_gen(m=11,d=9,y=2018))
+print(date_slash(11,12))
+print(date_with_sub(11,12,"buy a lots","sleep","eat"))
+print(date_with_sub(11,13,"buy a lots","sleep","eat"))
+print(date_with_sub(11,14,"do noting"))
+result = lambda x:x+1   #这个匿名函数接收一个参数 x，然后返回 x+1 的结果
+print(result(12))
+r2 = map(lambda x:x+2,[1,2,3])
+print(list(r2))
+
+# def scan():
+#     # lots stuff here
+#     if find this:
+#         return 'file'
+#     scan()
+
+print(show(1,2,3,something='hello'))
+
+#----------------------------------------------------------
+
+#绝对路径--从根目录写到底
+
+#-----------/Users/Administrator/Desktop/IMAGE
+
+#1.告诉计算机文件在哪
+#2.描述文件的特征
+#3.对比后打印文件名 ---> 用循环来实现逐个比对
+
+import os
+path = '/Users/cybermaster/Desktop/images'
+files = os.listdir(path)
+
+print(files)
+#for f in files:
+#   if iswhatwewant:
+#       print(f)
+#
+
