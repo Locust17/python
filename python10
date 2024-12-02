@@ -1,0 +1,41 @@
+#1.打开文件并且，每六个进行换行
+
+# import os
+#
+# count = 0
+# files = os.listdir(r'C:\Users\xiao\Desktop')
+# for i in files:
+#     count = count + 1
+#     if count % 5 == 0:
+#         print("\n")
+#     print(files)
+
+
+import os
+
+count = 0
+files = os.listdir(r'C:\Users\xiao\Desktop')
+for file in files:
+    file_path = os.path.join(r'C:\Users\xiao\Desktop', file)  # 拼接成完整的文件或文件夹路径
+    if os.path.isfile(file_path):  # 判断是否是文件
+        count += 1
+        print(file, end=' ')
+        if count % 6 == 0:
+            print()
+
+
+#-----------------------------------------------------------------
+
+#2.模糊查找文件
+
+import os
+
+files = os.listdir(r'C:\Users\xiao\Desktop')
+
+for file in files:
+    if ('php' in file and 'ping' in file) or file.endswith('.txt'):
+        print(file)
+        print('C:\\Users\\xiao\Desktop\\'+file)
+
+
+#----------------------------------------------------------------
