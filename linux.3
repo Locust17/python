@@ -1,0 +1,340 @@
+一.在linux世界里，一切皆为文件
+/bin
+/sbin
+/home
+/root
+/lib
+/lost+found
+/etc
+/usr
+/boot
+/proc
+/srv
+/sys
+/tmp
+/dev
+/mendia
+/mnt
+/opt
+/var
+/selinux
+二.远程登录linux
+ifconfig
+三.Vi和Vim编辑器（windos:打开文件 start）
+1.vim
+2.关机，重启（sudo shutdown -c）
+3.用户登录和注销(logout)
+四.
+1.用户管理（id，su）
+2.用户组（useradd,userdel,group,id,usermod -g,useradd -g wudangshan zhangwuji)
+etc/passwd --->组名:口令:组标识号:组内用户列表 ------------>添加用户自动生成一个组
+五.运行级别
+0
+1
+2
+3
+4
+5
+6
+init[0123456],通过init切换不同的运行级别
+工作用3，学习用5
+六.找回root密码
+e
+七.帮助指令
+1.man ls  ---->空格翻页，q退出
+2.ls
+3.ls -a
+4.ls -l
+5.ls -la
+6.ls -al /root
+7.ls -al /home
+8.help
+9.help cd
+八.文件目录分类
+绝对路径：从根目录开始定位 ----->cat /flag
+相对路径：从当前目录开始定位 ----->cat ./flag and cat flag
+
+pwd ---->显示当前工作目录的绝对路径
+ls
+-a
+-l
+
+cd ~ and cd :  ----->回到自己的家目录
+cd ..
+
+mkdir
+mkdir 目录
+mkdir -p 目录
+mkdir /home/dog
+mkdir -p /home/animal/tiger 
+
+rmdir
+rmdir 目录
+rm -rf 目录
+例子: 
+rmdir /home/dog
+rm -rf /home/animal
+
+touch
+touch 文件名
+touch hello.txt
+
+cp
+cp [选项] source[文件] dest[拷贝的目标]
+cp -r [选项] source[文件] dest[拷贝的目标]
+强制覆盖：\cp -r /home/bbb/ /opt/
+例子:
+cp hello.txt bbb/
+cp -r /home/bbb/ /opt/
+
+rm
+-r
+-f
+rm hello.txt
+rm -f hello.txt
+rm -r /home/bbb
+rm -rf home/bbb
+
+mv
+mv oldnamefile newnameflie :重命名
+mv /temp/movefile/targetFoloder
+例子：
+mv cat.txt pig.txt
+mv pig.txt /root/
+mv pig.txt /root/cow.txt
+mv /opt/bbb /home
+mv /opt/bb /home/uuu
+
+cat
+cat file
+-n
+cat -n /etc/profile
+cat -n /etc/profile | more
+enter --->多显示一行
+空格 ---->翻页
+vi
+
+less-----类似more,比more更强大
+less /opt/cow.txt
+
+
+echo
+echo hello world
+echo "hello,world~"
+
+head
+hand 文件 --->默认前十行
+head -n 5
+
+tall
+tail 文件 ---->默认尾部
+tail -n 5 文件
+tail -f 文件
+
+echo hello > /home/mydate.txt
+touch mydate.txt
+tail -f mydate.txt
+---监控
+
+>和>>
+>
+>>
+ls -l > 文件
+ls -al >>文件
+cat 文件1 > 文件2
+echo "内容" >> 文件
+
+cal
+cal >> /home/mycal
+cal >> /home/mycall
+
+ln
+ln -s [原文件或者目录][软连接名]
+ln -s /root/ /hone/myroot
+cd myroot/
+ll
+rm /home/myroot
+
+history
+history
+history 10
+!5
+
+9.时间和日期命令
+date
+date "+%Y- %m- %d"
+date "+%Y- %m- %d %H: %M: %s"
+date
+date -s
+date -s "2020-11-03 20:02:10"
+date
+
+cal
+
+10.查找命令
+find
+find -name
+find -user
+find -size
+find /home -name hello.txt
+find /home -name hellox.txt
+find /opt -user nobody
+fine /opt -user root
+find /opt -user root | more
+find / -size +200M
+ls -l
+ls -lh
+
+locate
+updatedb
+locate hello.txt
+locate hello.txt
+
+which
+which ls
+which reboot
+
+grep and |
+grep -n
+grep -i
+cat /home/hello.txt | grep -n "yes"
+grep -n "yes" /home/hello.txt
+
+11.压缩和解压
+gzip/gunzip
+gzip /home/hello.txt
+gunzip /home/hello.txt.gz
+
+zip/unzip
+zip -r
+zip -d
+zip -r myhome.zip /home/
+zip -r myhome.zip /home/*
+
+
+mkdir /opt/tmp
+unzip -d /opt/tmp/home/myhome.zip
+
+tar
+tar -c
+tar -v
+tar -f
+tat -z
+tar -x
+touch pig.txt
+touch cat.txt
+tar -zcvf pc.tar.gz /home/pig.txt /home/cat.txt
+tar -zcvf myhome.tar.gz /home/
+tar -zcvf pc.tar.gz
+mkdir /opt/tmp2
+tar -zcvf /home/myhome.tar.gz -C /opt/tmp2
+
+二.Linux组
+1.linux组基本介绍
+2.文件/目录 所有者
+ls -ahl
+touch apple.txt
+chown tom apple.txt
+
+groupadd monster
+useradd -g monster fox
+
+ls -ahl
+pwd
+touch ok.txt
+ll
+
+chgrp
+groupadd fruit
+touch orange.txt
+查看 --> root
+charp fiuit orange.txt
+
+usermod -g
+usermod -d
+id zwj
+cat /etc/group
+cat /etc/gruop | grep wudang
+usermod -g wudang zwj
+id zwj
+
+3.权限的基本介绍
+ls -l
+0-9
+
+rwx
+r
+w
+x
+
+chmod
+u
+g
+o
+a
+chmod u=rwx,g=rx,0=x
+u=rwx
+g=rx
+o=x
+chmod o+w
+chmod a-x
+chmod u=rwx,g=rx,o=rx,abc
+chmod u-x,g+w, abc
+chmod a+r abc
+r=4 w=2 x=1 rwx=4+2+1=7
+== chmod 751
+chmod 755/home/abc.txt
+
+chown newowner
+chown newowner:newgroup
+-R
+chown tom /home/abc.txt
+chomn -R tom /home/test
+
+chgrp
+chgrp newgroup
+groupadd shaolin
+charp shaolin /homme/abc.txt
+chgrp -R shaolin /home/test
+
+
+三.定时任务
+1.crond任务调度
+crontab
+-e
+-l
+-r
+ls -l /etc/ > /tmp/tp.txt
+crontab -e
+*****ls -l /etc/ > /tmp/to.txt
+:wq
+*
+，
+-
+*/n
+45 22***
+0 17**1
+0 5 1,15**
+40 4**1-5
+*/10 4***
+0 0 1,15*1
+0 5 1-15**
+crond
+crond -r
+crontab -l
+
+2.at
+ps -ef
+ps -ef | grep atd
+at
+Ctrl + D
+at
+-m
+-I
+-d
+-v
+-c
+-V
+-q
+-f
+-t
