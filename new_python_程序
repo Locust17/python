@@ -1,0 +1,78 @@
+#1.定义一个Circle类,其中有求面积方法，当半径小于0时，抛出一个用户自定义异常，这个可以使用python内置的Exception类继承
+class NegativeRadiusError(Exception):
+    def __init__(self,message="半径不能为0"):
+        self.message = message
+        super().__init__(self.message)
+
+class Circle:
+    def __init__(self,radius):
+        self.radius = radius
+    def area(self):
+        if self.radius < 0:
+            raise NegativeRadiusError
+        return 3.14159*self.radius**2
+
+def main():
+    try:
+        radius = float(input("请输入一个半径r:"))
+        circle = Circle(radius)
+        area = circle.area()
+        print(f"当半径为{radius}时候，面积为:{area:.2f}")
+    except ValueError:
+        print("错误，请输入一个合适的浮点数")
+    except NegativeRadiusError as e:
+        print(f"输入错误:{e}")
+if __name__ == "__main__":
+    main()
+
+#2.字符串字符统计：定义函数，统计文本文件中各字符的出现次数，返回字典
+def count_characters_in_file(filename):
+    char_count = {}
+    with open(filename,'r',encoding="utf-8") as file:
+        for line in file:
+            for char in line:
+                char_count[char] = char_count.get(char,0) + 1
+    return char_count
+
+#3.定义函数remove_duplicates删除列表中所有重复元素，保留第一个出现的元素，返回新列表(保持原顺序)
+def remove_duplicates(lst):
+    seen = set()
+    result = []
+    for item in lst:
+        if item not in seen:
+            seen.add(item)
+            result.append(item)
+    return result
+
+#4.定义Rectangle类:属性:length(长),width(宽),方法:1.area()计算面积 2.perimeter()
+class Rectangle:
+    def __init__(self,length,width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length*self.width
+
+    def perimeter(self):
+        return 2*(self.length + self.width)
+
+#验证
+rect = Rectangle(4,5)
+print(rect.area())
+print(rect.perimeter())
+
+#5.定义一个函数，从键盘输入一个整数，求100除以它的商，并显示输出，要求对从键盘输入的数值进行异常处理
+def divide_100_by_input(self):
+    try:
+        n = int(input("输入一个整数:"))
+        result = 100/n
+        print(f"输入值为{n}时，商值为:{result}")
+
+    except ZeroDivisionError:
+        print("错误，除数不能为零")
+
+    except ValueError:
+        print("错误，请输入一个有效的整数")
+
+    else:
+        print("程序正常运行，没有捕获到异常")
