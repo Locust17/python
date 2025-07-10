@@ -1,0 +1,58 @@
+#1.my_加密货币价格追踪器
+import requests
+
+def track_crypto(crypto):
+    url = f"http://api.coingecko.com/api/v3/simple/price?ids={crypto}&vs_currencies=usd"
+    response = requests.get(url).json()
+    price = response.get(crypto,{}).get('usd','N/A')
+    print(f"The current price of {crypto} is ${price}")
+
+track_crypto('bitcoin')
+
+
+#2.my_实时天气通知器
+#使用OpenWeatherMapAPI来获取当前的天气预报
+import requests
+
+def get_weather(city):
+    api_key = 'your_api_key_here'
+    url = f"http://xxxx/data/2.5/weather?q={city}&appod={api_key}"
+    response = requests.get(url).json()
+    if response['cod'] == 200:
+        print(f"Weather in {city}: {response['weather'][0]['description']},Temp:{response['main']['temp']}k")
+    else:
+        print(f"City not found!")
+get_weather('London')
+
+
+#3.my_文本转语音功能
+import pyttsx3
+
+def text_to_speech(text):
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
+
+text_to_speech("Hello, this is Python speaking!")
+
+
+#4.my_网站可用性检查
+import requests
+def check_website(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            print(f"{url} is up and running!")
+        else:
+            print(f"{url} retrned status ode {response.status_code}")
+    except Exception as e:
+        print(f"Error:{e}")
+
+check_website("https://example.com")
+
+#5.my_网页转电子书
+import pdfkit
+def webpage_to_pdf(url,output_file):
+    pdfkit.from_url(url,output_file)
+
+webget_to_pdf("https://example.com","output.pdf")
