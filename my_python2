@@ -1,0 +1,55 @@
+1.下载完成自动关机功能
+import os
+import time
+
+def shutdown_after(seconds):
+    print(f"Your PC will shur down in {seconds} seconds...")
+    time.sleep(seconds)
+    os.system("shurdown /s /t 1")
+
+shutdown_after(3600) # 1 hour
+
+2.脚本密码保护功能
+import getpass
+
+def password_protect(password):
+    user_input = getpass.getpass("Enter the password to access the script: ")
+    if user_input == password: 7
+        print("Access granted!")
+    else:
+        print("Access denied!")
+
+password_protect("your_secure_password")
+
+3.监控CPU 使用率
+import psutil
+import time
+
+def monitor_cpu():
+    while True:
+        cpu_usage = psutil.cpu_percent(interval=1)
+        print(f"Current CPU usage: {cpu_usage}%")
+        time.sleep(5) # Check every 5 seconds
+
+monitor_cpu()
+
+4.二维码生成功能
+import qrcode
+
+def generate_qr(data):
+    img = qrcode.make(data)
+    img.save('qr_code.png')
+
+generate_qr('https://example.com')
+
+5.创建简单的聊天机器人
+def chatbot():
+    print("Hello! I'm your friendly chatbot. Type 'exit' to stop.")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            print("Chatbot: Goodbye!")
+            break
+        print(f"Chatbot: You said '{user_input}'.")
+
+chatbot()
